@@ -40,7 +40,7 @@ public class form extends javax.swing.JFrame {
         mail.setText("Mail: ");
 
         titulo.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        titulo.setText("Formulario de login");
+        titulo.setText("Formulario de login ");
 
         password.setText("Password:");
 
@@ -50,7 +50,6 @@ public class form extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setEditable(false);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -85,7 +84,7 @@ public class form extends javax.swing.JFrame {
                             .addComponent(jTextField1_mail)
                             .addComponent(jPasswordField1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(132, Short.MAX_VALUE)
+                        .addContainerGap(127, Short.MAX_VALUE)
                         .addComponent(titulo)))
                 .addGap(122, 122, 122))
         );
@@ -119,15 +118,20 @@ public class form extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void button1_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1_registrarActionPerformed
-         String nombre = jTextField1_mail.getText().trim().toLowerCase() ;
-         int password = Integer.parseInt(new String(jPasswordField1.getPassword()));
-        
-         if (nombre.equals("alumno@ulp.edu.ar") && (password == 12345678 )) {
-             JOptionPane.showConfirmDialog(this, "Bienvenido");
-         }
-         else {
-             JOptionPane.showConfirmDialog(this, "Usuario / contraseña incorrecta");
-         }
+        try {
+            String nombre = jTextField1_mail.getText().trim().toLowerCase();
+            int password = Integer.parseInt(new String(jPasswordField1.getPassword()));
+
+            if (nombre.equals("alumno@ulp.edu.ar") && (password == 12345678)) {
+                JOptionPane.showConfirmDialog(this, "Bienvenido");
+            } else {
+                JOptionPane.showConfirmDialog(this, "Usuario / contraseña incorrecta");
+            }
+        } catch (Exception e ) {
+            e.getMessage();
+            JOptionPane.showConfirmDialog(this, "Error " + e.getMessage() );
+        } 
+   
     }//GEN-LAST:event_button1_registrarActionPerformed
 
     /**
